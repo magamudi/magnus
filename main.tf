@@ -28,8 +28,14 @@ terraform {
   }
 }
 
+resource "random_string" "random_suffix" {
+  length  = 3
+  special = false
+  upper   = false
+}
+
 resource "aws_s3_bucket" "onebucket" {
-   bucket = "var.bucket"
+   bucket = "mybucket-${random_string.random_suffix.result"
    acl = "private"
    versioning {
       enabled = true
@@ -39,16 +45,3 @@ resource "aws_s3_bucket" "onebucket" {
      Environment = "Test"
    }
 }
-
-resource "random_string" "random_suffix" {
-  length  = 3
-  special = false
-  upper   = false
-}
-
-variable "bucket" {
-  type = string
-  description = "this is the name of my s3 bucket"
-  default = "s3-bucket-${random_string.random_suffix.result}"
-}
-
