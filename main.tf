@@ -6,7 +6,7 @@ resource "aws_vpc" "newvpc" {
    cidr_block = "10.0.0.0/24"
 
   tags = {
-    Name = "trial"
+    Name = "trial-${random_string.random_suffix.result}"
     Team = "DevOps"
     Environment = "Prod"
     Division = "HR"
@@ -22,7 +22,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "aws_s3_bucket.onebucket.id"
+    bucket = "class-magnus-amudi"
     key = "new/terraform.tfstate"
     region = "us-east-1"
   }
