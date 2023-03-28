@@ -35,7 +35,7 @@ resource "random_string" "random_suffix" {
 }
 
 resource "aws_s3_bucket" "onebucket" {
-   bucket = "mybucket-${random_string.random_suffix.result"
+   bucket = "mybucket-${random_string.random_suffix.result}"
    acl = "private"
    versioning {
       enabled = true
