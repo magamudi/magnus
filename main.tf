@@ -1,15 +1,15 @@
 provider "aws" {
-  region = "us-west-2"
+  region = "us-east-1"
 }
 
-resource "aws_vpc" "actions" {
+resource "aws_vpc" "actionstest" {
    cidr_block = "10.0.0.0/24"
 
-  tags = {
-    Name = "Class30"
-    Team = "DevOps"
-    Environment = "Prod"
-    Division = "HR"
+  #tags = {
+  #  Name = "Class30"
+  #  Team = "DevOps"
+ #   Environment = "Prod"
+  #  Division = "HR"
   }
 }
 
@@ -22,9 +22,9 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "myotherclass25bucket"
-    key = "prod/terraform.tfstate"
-    region = "us-west-2"
+    bucket = "class-magnus-amudi"
+    key = "dev/terraform.tfstate"
+    region = "us-east-1"
   }
 }
 
