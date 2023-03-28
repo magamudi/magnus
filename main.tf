@@ -2,7 +2,7 @@ provider "aws" {
   region = "us-east-1"
 }
 
-resource "aws_vpc" "actionstest" {
+resource "aws_vpc" "magnusvpc" {
    cidr_block = "10.0.0.0/24"
 
   tags = {
